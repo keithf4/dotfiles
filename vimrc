@@ -22,3 +22,8 @@ set smartcase
 
 "" Sessions
 set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,resize,tabpages,winsize,winpos
+
+"" GUI
+if has('gui_running')
+    set guifont=Monospace\ 9 
+endif
