@@ -1,0 +1,10 @@
+[user] 
+        name = Keith Fiske
+        email = keith@keithf4.com
+[github]
+        user = keithf4
+[core] 
+        editor = vim
+
+[push]
+	default = current
