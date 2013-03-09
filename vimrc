@@ -17,7 +17,6 @@ set backspace=indent,eol,start
 
 "" Searching
 set hlsearch
-set incsearch
 set ignorecase
 set smartcase
 
