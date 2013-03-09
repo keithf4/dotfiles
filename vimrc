@@ -8,6 +8,8 @@ set t_Co=256
 color slate
 set ruler
 set rulerformat=%64(%F,\ %l,%c%)
+set number
+set numberwidth=5
 
 "" Whitespace
 set tabstop=4
