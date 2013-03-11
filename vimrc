@@ -5,7 +5,7 @@ filetype plugin indent on
 syntax on
 set background=dark
 set t_Co=256
-color torte
+color slate 
 set ruler
 set rulerformat=%64(%F,\ %l,%c%)
 set number
@@ -27,5 +27,6 @@ set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,
 
 "" GUI
 if has('gui_running')
-    set guifont=Monospace\ 9 
+    set guifont=Monospace\ 9
+    color torte
 endif
