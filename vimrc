@@ -1,5 +1,6 @@
 set showcmd
 filetype plugin indent on
+set autochdir
 
 "" Appearance
 syntax on
@@ -16,6 +17,11 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set backspace=indent,eol,start
+set wrap
+set linebreak
+set nolist
+set textwidth=0
+set wrapmargin=0
 
 "" Searching
 set hlsearch
@@ -29,4 +35,5 @@ set sessionoptions=blank,buffers,curdir,folds,globals,help,localoptions,options,
 if has('gui_running')
     set guifont=Monospace\ 9
     color torte
+    set lines=45 columns=190
 endif
