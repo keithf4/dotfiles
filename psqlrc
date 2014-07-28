@@ -18,10 +18,12 @@
 
 \echo '\nCurrent Host Server Date Time : '`date` '\n'
 
-\echo 'Administrative queries:\n'
+\echo 'Administrative queries (>= 9.2) :\n'
 \echo '\t\t:settings\t-- Server Settings'
 \echo '\t\t:conninfo\t-- Server connections'
-\echo '\t\t:activity\t-- Server activity'
+\echo '\t\t:activity\t-- Server activity (non-idle in xact_start desc order)'
+\echo '\t\t:activity_all\t-- Server activity (includes idle in backend_start desc order)'
+\echo '\t\t:iit\t\t-- Idle In Transaction queries'
 \echo '\t\t:locks\t\t-- Lock info'
 \echo '\t\t:waits\t\t-- Waiting queires'
 \echo '\t\t:dbsize\t\t-- Database Size'
@@ -39,6 +41,8 @@
 \echo '\t\t:clear\t\t-- Clear screen'
 \echo '\t\t:ll\t\t-- List\n'
 
+\echo 'Queries for older versions:\n'
+
 -- Administration queries
 
 \set menu '\\i ~/.psqlrc'
@@ -49,9 +53,13 @@
 
 \set conninfo 'select usename, count(*) from pg_stat_activity group by usename;'
 
-\set activity 'select datname, pid, usename, application_name,client_addr, client_hostname, client_port, query, state from pg_stat_activity;'
+\set activity 'select *, now() - xact_start from pg_stat_activity where state <> \'idle\' order by xact_start;'
 
-\set waits 'SELECT pg_stat_activity.pid, pg_stat_activity.query, pg_stat_activity.waiting, now() - pg_stat_activity.query_start AS \"totaltime\", pg_stat_activity.backend_start FROM pg_stat_activity WHERE pg_stat_activity.query !~ \'%IDLE%\'::text AND pg_stat_activity.waiting = true;'
+\set activity_all 'select * from pg_stat_activity order by backend_start desc;'
+
+\set iit 'select * from pg_stat_activity where state = \'idle in transaction\';'
+
+\set waits 'SELECT pid, query, waiting, backend_start, xact_start, query_start, state_change, now() - query_start AS \"runtime\" FROM pg_stat_activity WHERE waiting;'
 
 \set dbsize 'SELECT datname, pg_size_pretty(pg_database_size(datname)) db_size FROM pg_database ORDER BY db_size;'
 
