@@ -12,7 +12,7 @@
 \encoding unicode
 
 \pset null '«NULL»'
-\pset border 2
+\pset border 1 
 
 \set QUIET OFF
 
