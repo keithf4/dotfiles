@@ -6,7 +6,7 @@ set autochdir
 syntax on
 set background=dark
 set t_Co=256
-color slate 
+color pablo
 set ruler
 set rulerformat=%64(%F,\ %l,%c%)
 set number
