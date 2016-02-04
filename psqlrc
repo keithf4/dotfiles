@@ -36,8 +36,6 @@
 \echo '\t\t:menu\t\t-- Help Menu'
 --\echo '\t\t\\h\t\t-- Help with SQL commands'
 --\echo '\t\t\\?\t\t-- Help with psql commands\n'
-
-\echo 'Development queries:\n'
 \echo '\t\t:sp\t\t-- Current Search Path'
 \echo '\t\t:clear\t\t-- Clear screen'
 \echo '\t\t:ll\t\t-- List\n'
