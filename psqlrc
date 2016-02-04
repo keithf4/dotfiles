@@ -27,22 +27,22 @@
 \echo '\t\t:locks\t\t-- Lock info'
 \echo '\t\t:waits\t\t-- Waiting queires'
 \echo '\t\t:dbsize\t\t-- Database Size'
-\echo '\t\t:tablesize\t-- Tables Size'
-\echo '\t\t:uselesscol\t-- Useless columns'
-\echo '\t\t:fknoindex\t-- Check for FKs where there is no matching index'
-\echo '\t\t:bpu\t\t-- Buffers per usage count'
-\echo '\t\t:bpr\t\t-- Buffers per relation and size'
+--\echo '\t\t:tablesize\t-- Tables Size'
+--\echo '\t\t:uselesscol\t-- Useless columns'
+--\echo '\t\t:fknoindex\t-- Check for FKs where there is no matching index'
+--\echo '\t\t:bpu\t\t-- Buffers per usage count'
+--\echo '\t\t:bpr\t\t-- Buffers per relation and size'
 \echo '\t\t:uptime\t\t-- Server uptime'
 \echo '\t\t:menu\t\t-- Help Menu'
-\echo '\t\t\\h\t\t-- Help with SQL commands'
-\echo '\t\t\\?\t\t-- Help with psql commands\n'
+--\echo '\t\t\\h\t\t-- Help with SQL commands'
+--\echo '\t\t\\?\t\t-- Help with psql commands\n'
 
 \echo 'Development queries:\n'
 \echo '\t\t:sp\t\t-- Current Search Path'
 \echo '\t\t:clear\t\t-- Clear screen'
 \echo '\t\t:ll\t\t-- List\n'
 
-\echo 'Queries for older versions:\n'
+--\echo 'Queries for older versions:\n'
 
 -- Administration queries
 
