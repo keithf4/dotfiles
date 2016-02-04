@@ -3,7 +3,7 @@
 
 \set PROMPT1 '%[%033[1;33;40m%]%n@%/%R%[%033[0m%]%# '
 
-\set PAGER OFF
+\pset pager off
 \set HISTSIZE 2000
 \set ECHO_HIDDEN OFF
 \set COMP_KEYWORD_CASE upper
