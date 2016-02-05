@@ -3,7 +3,7 @@
 
 \set PROMPT1 '%[%033[1;33;40m%]%n@%/%R%[%033[0m%]%# '
 
-\pset pager off
+--\pset pager on
 \set HISTSIZE 2000
 \set ECHO_HIDDEN OFF
 \set COMP_KEYWORD_CASE upper
@@ -19,25 +19,25 @@
 \echo '\nCurrent Host Server Date Time : '`date` '\n'
 
 -- 'Administrative queries (>= 9.2)
-\echo '\t:settings\t\t-- Server Settings'
-\echo '\t:conninfo\t\t-- Server connections'
-\echo '\t:activity\t\t-- Server activity (non-idle in xact_start desc order)'
-\echo '\t:activity_all\t\t-- Server activity (includes idle in backend_start desc order)'
-\echo '\t:iit\t\t\t-- Idle In Transaction queries'
-\echo '\t:locks\t\t\t-- Lock info'
-\echo '\t:waits\t\t\t-- Waiting queires'
-\echo '\t:dbsize\t\t\t-- Database Size'
-\echo '\t:cachehitmiss\t\t-- Table disk hits vs cache hits'
-\echo '\t:cachehitmiss_user\t-- Table disk hits vs cache hits (exclude system catalogs)'
---\echo '\t:tablesize\t-- Tables Size'
---\echo '\t:uselesscol\t-- Useless columns'
---\echo '\t:fknoindex\t-- Check for FKs where there is no matching index'
---\echo '\t:bpu\t\t-- Buffers per usage count'
---\echo '\t:bpr\t\t-- Buffers per relation and size'
-\echo '\t:uptime\t\t\t-- Server uptime'
-\echo '\t:menu\t\t\t-- Help Menu'
-\echo '\t:clear\t\t\t-- Clear screen'
-\echo '\t:ll\t\t\t-- List\n'
+\echo ' :settings\t\t-- Server Settings'
+\echo ' :conninfo\t\t-- Server connections'
+\echo ' :activity\t\t-- Server activity (non-idle in xact_start desc order)'
+\echo ' :activity_all\t\t-- Server activity (includes idle in backend_start desc order)'
+\echo ' :iit\t\t\t-- Idle In Transaction queries'
+\echo ' :locks\t\t\t-- Lock info'
+\echo ' :waits\t\t\t-- Waiting queires'
+\echo ' :dbsize\t\t\t-- Database Size'
+\echo ' :cachehitmiss\t\t-- Table disk hits vs cache hits'
+\echo ' :cachehitmiss_user\t-- Table disk hits vs cache hits (exclude system catalogs)'
+--\echo ' :tablesize\t-- Tables Size'
+--\echo ' :uselesscol\t-- Useless columns'
+--\echo ' :fknoindex\t-- Check for FKs where there is no matching index'
+--\echo ' :bpu\t\t-- Buffers per usage count'
+--\echo ' :bpr\t\t-- Buffers per relation and size'
+\echo ' :uptime\t\t\t-- Server uptime'
+\echo ' :menu\t\t\t-- Help Menu'
+\echo ' :clear\t\t\t-- Clear screen'
+\echo ' :ll\t\t\t-- List\n'
 
 --\echo 'Queries for older versions:\n'
 
