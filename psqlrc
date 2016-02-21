@@ -27,6 +27,7 @@
 \echo ' :locks\t\t\t-- Lock info'
 \echo ' :waits\t\t\t-- Waiting queires'
 \echo ' :dbsize\t\t-- Database Size'
+\echo ' :xlogs\t\t-- List xlogs contents (WALs)'
 \echo ' :cachehitmiss\t\t-- Table disk hits vs cache hits'
 \echo ' :cachehitmiss_user\t-- Table disk hits vs cache hits (exclude system catalogs)'
 --\echo ' :tablesize\t-- Tables Size'
@@ -77,6 +78,7 @@
 
 \set cachehitmiss_user 'with all_tables as ( SELECT  * FROM    ( SELECT  \'all\'::text as table_name, sum( (coalesce(heap_blks_read,0) + coalesce(idx_blks_read,0) + coalesce(toast_blks_read,0) + coalesce(tidx_blks_read,0)) ) as from_disk, sum( (coalesce(heap_blks_hit,0)  + coalesce(idx_blks_hit,0)  + coalesce(toast_blks_hit,0)  + coalesce(tidx_blks_hit,0))  ) as from_cache    FROM    pg_statio_user_tables) a WHERE   (from_disk + from_cache) > 0), tables as ( SELECT  * FROM    ( SELECT  relname as table_name, ( (coalesce(heap_blks_read,0) + coalesce(idx_blks_read,0) + coalesce(toast_blks_read,0) + coalesce(tidx_blks_read,0)) ) as from_disk, ( (coalesce(heap_blks_hit,0)  + coalesce(idx_blks_hit,0)  + coalesce(toast_blks_hit,0)  + coalesce(tidx_blks_hit,0))  ) as from_cache    FROM    pg_statio_user_tables) a WHERE   (from_disk + from_cache) > 0) SELECT  table_name as "table name", from_disk as "disk hits", round((from_disk::numeric / (from_disk + from_cache)::numeric)*100.0,2) as "% disk hits", round((from_cache::numeric / (from_disk + from_cache)::numeric)*100.0,2) as "% cache hits", (from_disk + from_cache) as "total hits" FROM    (SELECT * FROM all_tables UNION ALL SELECT * FROM tables) a ORDER   BY (case when table_name = \'all\' then 0 else 1 end), from_disk desc;'
 
+\set xlogs 'SELECT v.d, f.f, s.size, s.isdir FROM (values(\'pg_xlog\') ) AS v(d), LATERAL pg_ls_dir(v.d) AS f(f), LATERAL pg_stat_file(v.d || \'/\' || f.f) as s order by 2;'
 
 -- Development queries:
 
